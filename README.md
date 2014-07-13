@@ -92,12 +92,6 @@ Both synchronous and asynchronous versions of the methods are available. Since a
 
     using (var client = storageManagement.CreateClient())
     {
-    	var response1 = client.StorageAccounts.CheckNameAvailabilityAsync("mystorageaccount").Result;
-    	Console.WriteLine(String.Format("{0}: {1}", response1.IsAvailable, response1.Reason));
-
-    	var response2 = client.StorageAccounts.CheckNameAvailability("mystorageaccount");
-    	Console.WriteLine(String.Format("{0}: {1}", response2.IsAvailable, response2.Reason));
-
     	var task = client.StorageAccounts.CheckNameAvailabilityAsync("mystorageaccount");
     	task.ContinueWith(t => { Console.WriteLine(String.Format("{0}: {1}", t.Result.IsAvailable, t.Result.Reason)); }).Wait();
     }
