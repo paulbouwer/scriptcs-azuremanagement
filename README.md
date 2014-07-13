@@ -83,7 +83,7 @@ The following is an example for interacting with Storage Accounts via the Storag
           });
           Console.WriteLine("{0}: {1}", createResult.RequestId, createResult.StatusCode);
 
-          var listResponse = storageClient.StorageAccounts.List();
+          var listResponse = client.StorageAccounts.List();
           Console.WriteLine(String.Join("\n", listResponse.StorageServices.Select(x => x.ServiceName)));
         }
     }
